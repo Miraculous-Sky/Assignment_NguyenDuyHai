@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tạo quiz";
+}
+
+
+<div class="container col-9 justify-content-center" style="background-color:darkseagreen">
+    <form class="form-inline justify-content-center pt-2">
+        <input type="number" class="form-control mb-2 mr-sm-2 col-4" min="0" name="n" placeholder="Nhập số lượng test">
+        <button type="submit" class="btn btn-primary mb-2 col-4">Create quiz</button>
+    </form>
+    <form method="post" class="mt-5">
+        @for (int i = 0; i < Model.Answers.Length; i++)
+        {
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">@Model.Augends[i] + @Model.Addends[i] =</label>
+                @Html.HiddenFor(x => x.Augends[i])
+                @Html.HiddenFor(x => x.Addends[i])
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.Answers[i], new
+                    {
+                   @class = "form-control col-2 d-inline-flex",
+                   @type = "number"
+                    })
+                </div>
+            </div>
+        }
+        @if (Model.Answers.Length > 0)
+        {
+            <button type="submit" class="btn btn-info mb-2 col-3">Xem kết quả</button>
+            <label class="">Click the browser's Refresh button to get a new quiz</label>
+        }
+    </form>
+</div>

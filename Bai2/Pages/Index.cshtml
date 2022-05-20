@@ -1,0 +1,113 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Trang chính";
+
+}
+
+<div class="container col-8 justify-content-center" style="background-color:beige">
+    <form class="form-inline justify-content-center pt-2">
+        <input type="number" class="form-control mb-2 mr-sm-2 col-3" name="m" min="0" placeholder="Nhập số dòng m">
+        <input type="number" class="form-control mb-2 mr-sm-2 col-3" name="n" min="0" placeholder="Nhập số cột n">
+        <button type="submit" class="btn btn-primary mb-2  col-3">Process</button>
+    </form>
+
+    <div class="table-responsive mt-3 ">
+        <table class="table table-info table-bordered">
+            @for (int column = 0; column < Model.Data.Length; column++)
+            {
+                <tbody>
+                    <tr>
+                        @for (int row = 0; row < Model.Data[column].Length; row++)
+                        {
+                            <td class="text-center">@Model.Data[column][row]</td>
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>
+        @if (Model.Row > 0)
+        {
+            <p>Bảng ban đầu với m = @Model.Row và n = @Model.Column</p>
+        }
+    </div>
+    <div class="table-responsive mt-3 ">
+        <table class="table table-info table-bordered">
+            @for (int column = 0; column < Model.Data.Length; column++)
+            {
+                <tbody>
+                    <tr>
+                        @for (int row = 0; row < Model.Data[column].Length; row++)
+                        {
+                            @if (!Model.IsPrime(Model.Data[column][row]))
+                            {
+                                <td>@Model.Data[column][row]</td>
+                            }
+                            else
+                            {
+                                <td class="bg-info">&nbsp;</td>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>@if (Model.Row > 0)
+        {
+            <p>Kết quả thực hiện câu <strong>a</strong> <i>(xóa số nguyên tố)</i></p>
+        }
+    </div>
+    <div class="table-responsive mt-3">
+        <table class="table table-info table-bordered">
+            @for (int column = 0; column < Model.Data.Length; column++)
+            {
+                <tbody>
+                    <tr>
+                        @for (int row = 0; row < Model.Data[column].Length; row++)
+                        {
+                            @if (row == 0 || column == 0 || row == Model.Column - 1 || column == Model.Row - 1)
+                            {
+                                <td>@Model.Data[column][row]</td>
+
+                            }
+                            else
+                            {
+                                <td class="bg-info">&nbsp;</td>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>
+        @if (Model.Row > 0)
+        {
+            <p>Kết quả thực hiện câu <strong>b</strong> <i>(xóa số không nằm ở biên)</i></p>
+        }
+    </div>
+    <div class="table-responsive mt-3 ">
+        <table class="table table-info table-bordered">
+            @for (int column = 0; column < Model.Data.Length; column++)
+            {
+                <tbody>
+                    <tr>
+                        @for (int row = 0; row < Model.Data[column].Length; row++)
+                        {
+                            @if ((row + column) % 2 != 0)
+                            {
+                                <td>@Model.Data[column][row]</td>
+                            }
+                            else
+                            {
+                                <td class="bg-info">&nbsp;</td>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            }
+        </table>
+        @if (Model.Row > 0)
+        {
+            <p>Kết quả thực hiện câu <strong>c</strong> <i>(xóa số có tổng chỉ dòng và cột là số chẵn)</i></p>
+        }
+    </div>
+
+</div>

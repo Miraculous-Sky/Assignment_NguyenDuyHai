@@ -1,0 +1,150 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Biểu mẫu";
+}
+<div class="container col-8">
+    <p class="h2 font-weight-light text-light bg-info p-5 mb-0">Khảo sát ý kiến về việc Học online và Kiểm tra online của Sinh viên Khoa CNTT</p>
+    <div class="border-info border" style="background-color: #cff8ff">
+        <p class="mt-5 ml-3">Hi, Long. When you submit this form, the owner will see you name and email address.</p>
+        <p class="ml-3 small"><span class="text-danger font-weight-bold">* </span>Required</p>
+        <form method="post" class="mr-3">
+            <ol>
+                <li class="form-group mt-4 p-2">
+                    <label for="studentID">Mã số Sinh viên <span class="text-danger font-weight-bold">*</span></label>
+                    <input type="text" class="form-control" id="studentID" name="studentID" placeholder="Enter your answer">
+                    <span asp-validation-for="StudentID"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label for="fullname">Họ và Tên <span class="text-danger font-weight-bold">*</span></label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your answer">
+                    <span asp-validation-for="Fullname"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label for="grade">Khóa học (K16, K17, K18, K19) <span class="text-danger font-weight-bold">*</span></label>
+                    <input type="text" class="form-control" id="grade" name="grade" placeholder="Enter your answer">
+                    <span asp-validation-for="Grade"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label>GV cung cấp tài liệu phục vụ môn học (sách tham khảo, slide, bài tập, bài kiểm tra,...) <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherDocsAbility" id="teacherDocsAbility1" value="good">
+                        <label class="form-check-label" for="teacherDocsAbility1">Tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherDocsAbility" id="teacherDocsAbility2" value="normal">
+                        <label class="form-check-label" for="teacherDocsAbility2">Bình thường</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherDocsAbility" id="teacherDocsAbility3" value="bad">
+                        <label class="form-check-label" for="teacherDocsAbility3">Chưa tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherDocsAbility" id="teacherDocsAbility4" value="">
+                        <input type="text" class="form-control" name="teacherDocsAbility" placeholder="Khác">
+                    </div>
+                    <span asp-validation-for="TeacherDocsAbility"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label>Khả năng sử dụng các công cụ phục vụ giảng dạy của GV <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherToolAbility" id="teacherToolAbility1" value="good">
+                        <label class="form-check-label" for="teacherToolAbility1">Tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherToolAbility" id="teacherToolAbility2" value="normal">
+                        <label class="form-check-label" for="teacherToolAbility2">Bình thường</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherToolAbility" id="teacherToolAbility3" value="bad">
+                        <label class="form-check-label" for="teacherToolAbility3">Chưa tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="teacherToolAbility" id="teacherToolAbility4" value="">
+                        <input type="text" class="form-control" name="teacherToolAbility" placeholder="Khác">
+                    </div>
+                    <span asp-validation-for="TeacherToolAbility"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label>Nhận định chung của bạn về chất lượng giảng dạy đối với các môn học <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="generalReview" id="generalReview1" value="good">
+                        <label class="form-check-label" for="generalReview1">Tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="generalReview" id="generalReview2" value="normal">
+                        <label class="form-check-label" for="generalReview2">Bình thường</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="generalReview" id="generalReview3" value="bad">
+                        <label class="form-check-label" for="generalReview3">Chưa tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="generalReview" id="generalReview4" value="">
+                        <input type="text" class="form-control" name="generalReview" placeholder="Khác">
+                    </div>
+                    <span asp-validation-for="GeneralReview"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label>Việc sử dụng các công cụ học tập online (iStudy, Microsoft Teams) hiện tại của bạn <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="studentToolAbility" id="studentToolAbility1" value="good">
+                        <label class="form-check-label" for="studentToolAbility1">Tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="studentToolAbility" id="studentToolAbility2" value="normal">
+                        <label class="form-check-label" for="studentToolAbility2">Bình thường</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="studentToolAbility" id="studentToolAbility3" value="bad">
+                        <label class="form-check-label" for="studentToolAbility3">Chưa tốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="studentToolAbility" id="studentToolAbility4" value="">
+                        <input type="text" class="form-control" name="studentToolAbility" placeholder="Khác">
+                    </div>
+                    <span asp-validation-for="StudentToolAbility"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label for="mainCons">Những khó khăn chính trong việc học online của bạn</label>
+                    <textarea class="form-control" id="mainCons" name="mainCons" rows="3" placeholder="Enter your answer"></textarea>
+                    <span asp-validation-for="MainCons"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label>Theo bạn hình thức Thi giữa kỳ nên là <span class="text-danger font-weight-bold">*</span></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType1" value="value1">
+                        <label class="form-check-label" for="examType1">Trắc nghiệm</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType2" value="value2">
+                        <label class="form-check-label" for="examType2">Tự luận</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType3" value="value3">
+                        <label class="form-check-label" for="examType3">Có cả Trắc nghiệm và Tự luận</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType4" value="value4">
+                        <label class="form-check-label" for="examType4">Đồ án</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType5" value="value5">
+                        <label class="form-check-label" for="examType5">Vấn đáp</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="examType" id="examType6" value="">
+                        <input type="text" class="form-control" name="examType" placeholder="Khác">
+                    </div>
+                    <span asp-validation-for="ExamType"></span>
+                </li>
+                <li class="form-group mt-4 p-2">
+                    <label for="otherOpinion">Ý kiến đóng góp hoặc phản hồi khác của bạn</label>
+                    <textarea class="form-control" id="otherOpinion" name="otherOpinion" rows="3" placeholder="Enter your answer"></textarea>
+                    <span asp-validation-for="OtherOpinion"></span>
+                </li>
+            </ol>
+            <button type="submit" class="btn btn-info ml-5 mt-5 mb-5">Submit</button>
+        </form>
+    </div>
+</div>

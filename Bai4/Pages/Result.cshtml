@@ -1,0 +1,27 @@
+﻿@page
+@model Bai4.Pages.ResultModel
+@{
+ViewData["Title"] = "Kết quả";
+}
+@{int count = 0; int correctAnswer;}
+
+
+<div class="container col-9 justify-content-center" style="background-color:darkseagreen">
+    @for (int i = 0; i < ResultModel.Answers.Length; i++)
+    {
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">@ResultModel.Augends[i] + @ResultModel.Addends[i] = @ResultModel.Answers[i]</label>
+        <div class="col col-form-label">
+            @if (ResultModel.Result[i]) {
+                    count++;
+            <label class="text-light"> Correct &hearts;</label>
+                }
+                else    {
+            correctAnswer = ResultModel.Augends[i] + ResultModel.Addends[i];
+            <label class="text-danger">Wrong! <span class="font-italic">Correct answer is @correctAnswer</span></label>
+            }
+        </div>
+    </div>
+    }
+    <label class="text-info">The total correct count is @count</label>
+</div>
