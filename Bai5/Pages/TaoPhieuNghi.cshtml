@@ -1,0 +1,98 @@
+﻿@page
+@model Bai5.Pages.TaoPhieuNghiModel
+@{
+    TaoPhieuNghiModel temp;
+}
+@Html.ValidationSummary(true, string.Empty, new { @class = "alert alert-warning", @role = "alert" })
+<h3>TẠO MỚI PHIẾU</h3>
+<form method="post" class="needs-validation" novalidate>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Name, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Employee's Name", @required = "true" } })
+            <span asp-validation-for="Name" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Department, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.DropDownListFor(m => m.Department, new SelectList(new List<string>() { "IT", "HM" }), new { @class = "form-control", @required = "true" })
+            <span asp-validation-for="Department" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.TotalDate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.TotalDate, new { htmlAttributes = new { @class = "form-control", @required = "true", @min = "1" } })
+            <span asp-validation-for="TotalDate" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.FromDate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.FromDate, new { htmlAttributes = new { @class = "form-control", @required = "true", @type = "date" } })
+            <span asp-validation-for="FromDate" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ToDate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.EditorFor(model => model.ToDate, new { htmlAttributes = new { @class = "form-control", @required = "true", @type = "date" } })
+            <span asp-validation-for="ToDate" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Note, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-8">
+            @Html.TextAreaFor(model => model.Note, new { @class = "form-control w-100", @placeholder = "Detail", @rows = "3", @required = "true" })
+            <span asp-validation-for="Note" class="invalid-form-feedback"></span>
+        </div>
+    </div>
+    <div class="row mb-3 justify-content-center">
+        <button type="submit" class="btn btn-dark">Gửi</button>
+    </div>
+</form>
+<table class="table table-striped mb-5">
+    <thead class="table-warning text-center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên nhân viên</th>
+            <th scope="col">Phòng ban</th>
+            <th scope="col">Số ngày nghỉ</th>
+            <th scope="col">Từ ngày</th>
+            <th scope="col">Đến ngày</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.AbsenabsenceLetters.Count; i++)
+        {
+            temp = Model.AbsenabsenceLetters[i];
+            <tr>
+                <td>@i</td>
+                <td>@temp.Name</td>
+                <td>@temp.Department</td>
+                <td>@temp.TotalDate</td>
+                <td>@temp.FromDate</td>
+                <td>@temp.ToDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

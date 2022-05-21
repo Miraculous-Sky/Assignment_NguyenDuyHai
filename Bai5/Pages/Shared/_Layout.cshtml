@@ -3,44 +3,81 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bai5</title>
+    <title>@ViewData["Title"] - Bài 5</title>
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Bai5</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/img/logoit.png" width="125" height="125">
+            </div>
+            <div class="col-7 text-uppercase">
+                <div id="department">bộ môn công nghệ thông tin</div>
+                <div id="heading" class="text-center">quản lý hành chính</div>
+            </div>
+            @if (!(ViewData["Title"] as string == "Login"))
+            {
+                <div class="col-2 ml-5" id="logo"></div>
+            }
+        </div>
+        @if (!(ViewData["Title"] as string == "Login"))
+        {
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <a class="navbar-brand font-weight-bold" href="#">
+                    @if (ViewData["Title"] as string == "Home")
+                    {
+                        <span style="color:red"><i class="fa-solid fa-house-chimney"></i></span>
+                    }
+                    else
+                    {
+                        <text>IT</text>
+                    }
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" href="Home">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" href="#">Phòng ban</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Chức vụ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nhân viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ngày phép</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Phiếu nghỉ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thoát</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        }
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3 pt-2">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Bai5 - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+    <footer class="footer text-light text-center bg-secondary">
+        Copyright &copy;2022
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

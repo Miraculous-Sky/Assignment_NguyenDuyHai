@@ -1,0 +1,86 @@
+﻿@page
+@model Bai5.Pages.HomeModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <ul class="list-group">
+                <li class="list-group-item active">Admin</li>
+                <li class="list-group-item">Số ngày nghỉ phép</li>
+                <li class="list-group-item">Tạo phiếu nghỉ</li>
+                <li class="list-group-item">Phiếu nghỉ đã duyệt</li>
+                <li class="list-group-item">Phiếu nghỉ mới</li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <div class="container-fluid">
+                <div class="row justify-content-between border-bottom pb-2">
+                    <a class="text-primary" style="text-decoration: underline" href="#"><i class="fa-regular fa-fw fa-bookmark"></i>Phiếu đang chờ duyệt</a>
+                    <a class="text-primary" style="text-decoration: underline" href="TaoPhieuNghi"><i class="fa-regular fa-fw fa-square-plus"></i>Tạo mới phiếu nghỉ</a>
+                </div>
+                <div class="row mb-3 mt-3">
+                    <div class="col-3">
+                        <img src="~/img/img1.png" class="img-thumbnail">
+                    </div>
+                    <div class="col-3">
+                        <img src="~/img/img2.png" class="img-thumbnail">
+                    </div>
+                    <div class="col-3">
+                        <img src="~/img/img3.png" class="img-thumbnail">
+                    </div>
+                    <div class="col-3">
+                        <img src="~/img/img4.png" class="img-thumbnail">
+                    </div>
+                </div>
+                <ul class="row pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+                <div class="row border-bottom mb-3">
+                    <a class="text-primary" style="text-decoration: underline" href="#"><i class="fa-solid fa-square-check fa-fw"></i>Phiếu đã duyệt</a>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead class="table-warning text-center">
+                            <tr>
+                                <th scope="col">Mã phiếu</th>
+                                <th scope="col">Ngày nghỉ</th>
+                                <th scope="col">Ngày duyệt</th>
+                                <th scope="col">Người duyệt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01234</td>
+                                <td>2021-01-02</td>
+                                <td>2021-01-01</td>
+                                <td>Nguyễn Văn An</td>
+                            </tr>
+                            <tr>
+                                <td>01232</td>
+                                <td>2020-01-02</td>
+                                <td>2020-01-01</td>
+                                <td>Nguyễn Văn An</td>
+                            </tr>
+                            <tr>
+                                <td>01231</td>
+                                <td>2020-03-02</td>
+                                <td>2020-03-01</td>
+                                <td>Nguyễn Văn An</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
